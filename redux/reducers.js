@@ -1,9 +1,9 @@
 export default reducers = (state = {
-    user: '',
+    loggedIn: false,
   }, action) => {
     switch (action.type) {
       case 'LOGIN': {
-        return { ...state, user: action.payload }
+        return { ...state, loggedIn: action.payload }
       }
     }
     return state;

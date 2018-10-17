@@ -1,5 +1,7 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "sdkVersion": "25.0.0",
+    "FacebookAppID":"546994982389972",
+    "facebookDisplayName": "mTinder"
   }
 }

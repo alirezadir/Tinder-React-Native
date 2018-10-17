@@ -5,20 +5,22 @@ import { login } from '../redux/actions'
 
 import { 
   Text, 
-  View
+  View, 
+  Alert
 } from 'react-native';
 
 class Home extends React.Component {
   state = {}
 
   componentWillMount() {
-    this.props.dispatch(login("whats up"))
+
   }
+
 
   render() {
     return (
      <View>
-      <Text>{this.props.user}</Text>
+      <Text>Home</Text>
      </View>
     )
   }
@@ -26,7 +28,7 @@ class Home extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    loggedIn: state.loggedIn
   };
 }
 
