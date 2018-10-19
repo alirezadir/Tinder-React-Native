@@ -3,5 +3,20 @@
     "sdkVersion": "25.0.0",
     "FacebookAppID":"546994982389972",
     "facebookDisplayName": "mTinder"
-  }
+  },
+  "permissions": [
+    "CAMERA",
+    "READ_EXTERNAL_STORAGE",
+    "WRITE_EXTERNAL_STORAGE",
+    "ACCESS_COARSE_LOCATION",
+    "ACCESS_FINE_LOCATION",
+    "CAMERA",
+    "READ_INTERNAL_STORAGE",
+    "RECORD_AUDIO",
+    "READ_PHONE_STATE",
+    "READ_CONTACTS",
+    "android.permission.CHANGE_CONFIGURATION",
+    "com.google.android.c2dm.permission.RECEIVE",
+    "android.permission.ACCESS_NETWORK_STATE"
+  ]
 }

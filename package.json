@@ -23,6 +23,7 @@
     "firebase": "^5.5.4",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-aws3": "0.0.8",
     "react-navigation": "^1.4.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
