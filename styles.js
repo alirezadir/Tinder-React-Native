@@ -7,7 +7,7 @@ var deviceHeight = Dimensions.get('window').height;
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -52,6 +52,20 @@ var styles = StyleSheet.create({
 	  margin: 15,
 	  fontSize: 18,
 	  fontWeight: 'bold',
+  },
+  card:{
+    width: deviceWidth*0.9,
+    height: deviceHeight*0.6
+  }, 
+  cardDescription: {
+    padding: 15,
+    justifyContent: 'flex-end',
+    flex: 1,
+  },
+  cardInfo: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
   },
 })
 

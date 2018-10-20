@@ -32,7 +32,7 @@ export default TabNavigator(
     tabBarPosition: 'top',
     initialRouteName: 'Home',
     animationEnabled: true,
-    swipeEnabled: true,
+    swipeEnabled: false,
     tabBarOptions: {
       style: {
         height: 75
