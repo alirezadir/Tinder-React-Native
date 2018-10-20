@@ -3,6 +3,8 @@ import aws from '../config/aws';
 import { ImagePicker, Permissions} from 'expo';
 import { RNS3 } from 'react-native-aws3';
 import React from 'react';
+import { Alert } from 'react-native';
+
 
 import { 
     Button
@@ -37,6 +39,13 @@ export function login(user){
           })
     }
   }
+
+  export function logout(){
+	return function(dispatch){
+    firebase.auth().signOut()
+    dispatch({ type: 'LOGOUT', loggedIn: false });
+   }
+}
 
 
 askPermissionsAsync = async () => {
@@ -78,4 +87,32 @@ export function uploadImages(images){
 
 		})
 	}
+}
+
+export function deleteImage(images, key){
+	return function(dispatch){
+    Alert.alert(
+      'Are you sure you want to Delete',
+      '',
+      [
+        {text: 'Ok', onPress: () => {
+          var array = images
+          array.splice(key, 1)
+    			dispatch({ type: 'UPLOAD_IMAGES', payload: array });
+          firebase.database().ref('cards/' + firebase.auth().currentUser.uid + '/images').set(array);
+        }},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed')},
+      ],
+      { cancelable: true }
+    )
+	}
+}
+
+export function updateAbout(value){
+	return function(dispatch){
+		dispatch({ type: 'UPDATE_ABOUT', payload: value });
+    setTimeout(function(){  
+			firebase.database().ref('cards/' + firebase.auth().currentUser.uid).update({ aboutMe: value });
+    }, 3000);
+  }
 }
