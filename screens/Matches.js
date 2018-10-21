@@ -34,7 +34,7 @@ class Matches extends React.Component {
       <ScrollView>
         {this.state.chats.map((uri)=>{
           return (
-            <TouchableOpacity style={styles.imgRow} >
+            <TouchableOpacity style={styles.imgRow} onPress={() => this.props.navigation.navigate("Chat", {user: uri.user})}>
               <Image style={styles.img} source={{uri: uri.user.photoUrl}} />
               <Text style={[styles.bold, styles.center]}>{uri.user.name}</Text>
             </TouchableOpacity>
