@@ -46,7 +46,7 @@ class Login extends React.Component {
         return (
             <View style={styles.container}>
             <TouchableOpacity onPress={this.login.bind(this)}>
-            <Text>Login</Text>
+            <Text style={styles.button}>Facebook Login</Text>
             </TouchableOpacity>
              
             </View>

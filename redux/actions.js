@@ -1,9 +1,10 @@
 import * as firebase from 'firebase';
 import aws from '../config/aws';
-import { ImagePicker, Permissions} from 'expo';
+import { ImagePicker, Permissions, Location} from 'expo';
 import { RNS3 } from 'react-native-aws3';
 import React from 'react';
 import { Alert } from 'react-native';
+import Geohash from 'latlon-geohash';
 
 
 import { 
@@ -118,9 +119,9 @@ export function updateAbout(value){
 }
 
 
-export function getCards(){
+export function getCards(geocode){
     return function(dispatch){
-        firebase.database().ref('cards').once('value', (snap) => {
+        firebase.database().ref('cards').orderByChild("geocode").equalTo(geocode).once('value', (snap) => {
             var items = [];
             snap.forEach((child) => {
               item = child.val();
@@ -155,3 +156,32 @@ export function sendNotification(id, name, text){
       });
     }
   }
+
+
+
+  export function getLocation(){
+	return function(dispatch){
+		Permissions.askAsync(Permissions.LOCATION).then(function(result){
+		  if(result){
+		    Location.getCurrentPositionAsync({}).then(function(location){
+		      var geocode = Geohash.encode(location.coords.latitude, location.coords.longitude, 4)
+		      firebase.database().ref('cards/' + firebase.auth().currentUser.uid).update({geocode: geocode});
+		      dispatch({ type: 'GET_LOCATION', payload: geocode });
+		    })
+		  }
+		})
+	}
+}
+
+// #   km      
+// 1   ±2500
+// 2   ±630
+// 3   ±78
+// 4   ±20
+// 5   ±2.4
+// 6   ±0.61
+// 7   ±0.076
+// 8   ±0.019
+// 9   ±0.0024
+// 10  ±0.00060
+// 11  ±0.000074

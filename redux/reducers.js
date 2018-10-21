@@ -31,6 +31,9 @@ export default reducers = (state = {
       case 'GET_CARDS':      
         return { ...state, cards: action.payload
       }
+      case 'GET_LOCATION':      
+        return { ...state, user: { ...state.user, geocode : action.payload } 
+      }
 
     }
     return state;
