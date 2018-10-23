@@ -1,8 +1,24 @@
 {
   "expo": {
     "sdkVersion": "25.0.0",
-    "FacebookAppID":"546994982389972",
-    "facebookDisplayName": "mTinder"
+    "icon": "./assets/tinder-icon.png",
+    "version": "1.0",
+  	"name": "Tinder",
+  	"slug": "tinder",
+    "splash": {
+		  "image": "./assets/tinder-splash.png",
+		  "backgroundColor": "#fff",
+		  "resizeMode": "contain"
+		},
+    "ios": {
+      "bundleIdentifier": "com.tinder.tinder",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Allow Tinder to use your location in order to find new people to hang out with in your area"
+      }
+    },
+    "android": {
+      "package": "com.tinder.tinder"
+    }
   },
   "permissions": [
     "CAMERA",

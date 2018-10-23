@@ -9,7 +9,8 @@ firebase.initializeApp(firebaseConfig);
 import { 
   Text, 
   View, 
-  TouchableOpacity
+  TouchableOpacity, 
+  Image
 } from 'react-native';
 
 class Login extends React.Component {
@@ -44,12 +45,12 @@ class Login extends React.Component {
           return <RootNavigator/>
       } else {
         return (
-            <View style={styles.container}>
+          <View style={[styles.container, styles.center]}>
+            <Image source={require('../assets/tinder-logo.png')}/>
             <TouchableOpacity onPress={this.login.bind(this)}>
-            <Text style={styles.button}>Facebook Login</Text>
+              <Text style={styles.button}>Facebook Login</Text>
             </TouchableOpacity>
-             
-            </View>
+          </View>
            )
       }
   }

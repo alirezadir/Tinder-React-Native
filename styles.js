@@ -14,6 +14,14 @@ var styles = StyleSheet.create({
   color: {
   	color: '#df4723'
   },
+  logo: {
+    width: 100, 
+    height: 55,
+    marginTop: 70
+  },
+  nav: {
+    marginTop: 70
+  },
   center: {
     alignItems: 'center',
     justifyContent: 'center',
